@@ -180,7 +180,7 @@ function makeAndroidString(object, textIndex, options) {
     var o = object[i];
     var identifier = o.identifierAndroid;
     
-    var text = o.texts[textIndex];
+    var text = escapeSpecialChar_(o.texts[textIndex]);
     
     if (text == undefined || text == "") {
       continue;
@@ -421,4 +421,10 @@ function arrayTranspose_(data) {
   }
 
   return ret;
+}
+
+// Escape special character for Android xml
+// Transformations : ' into \', & into &amp;
+function escapeSpecialChar_(text) {
+  return text.toString().replace("'", "\\'", "g").replace("&", "&amp;", "g").replace("...", "…", "g")
 }
