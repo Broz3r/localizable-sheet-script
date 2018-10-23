@@ -426,5 +426,5 @@ function arrayTranspose_(data) {
 // Escape special character for Android xml
 // Transformations : ' into \', & into &amp;
 function escapeSpecialChar_(text) {
-  return text.toString().replace("'", "\\'", "g").replace("&", "&amp;", "g").replace("...", "…", "g")
+  return text.toString().replace("'", "\\'", "g").replace(" & ", " &amp; ", "g").replace("...", "…", "g")
 }
